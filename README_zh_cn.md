@@ -107,7 +107,9 @@ git lfs pull
 pip install -r requirements.txt
 ```
 
-**说明（macOS）：** FBX 导出依赖 Autodesk FBX SDK 的 Python 绑定（`fbxsdkpy`），该包在 macOS 上不可用；因此在 macOS 上会自动禁用 FBX 导出并回退到非 FBX 输出。`bitsandbytes` 也是可选依赖，在 macOS 上不可用。
+**说明（macOS）：** FBX 导出依赖 Autodesk FBX SDK 的 Python 绑定（`fbx` 模块）。PyPI 上的 `fbxsdkpy` 在 macOS 上不可用；因此在 macOS 上会自动禁用 FBX 导出并回退到非 FBX 输出。`bitsandbytes` 也是可选依赖，在 macOS 上不可用。
+
+**可选（macOS 启用 FBX 导出）：** 如果你手动安装了 Autodesk FBX SDK + Python bindings，请设置环境变量 `FBXSDK_PYTHON_PATH` 指向包含 `fbx` 模块的目录（确保 `python -c "import fbx"` 可执行）。HY-Motion 会在能成功 `import fbx` 时自动启用 FBX 导出。
 
 #### 2. 下载模型权重
 请按照 [ckpts/README.md](ckpts/README.md) 中的说明下载必要的模型权重。

@@ -1,5 +1,6 @@
 # t2m_runtime.py
 import os
+import sys
 import threading
 import time
 import uuid
@@ -11,6 +12,15 @@ import yaml
 from ..prompt_engineering.prompt_rewrite import PromptRewriter
 from .loaders import load_object
 from .visualize_mesh_web import save_visualization_data, generate_static_html_content
+
+# Optional: allow users to point to Autodesk FBX SDK Python bindings on macOS/Linux.
+# Example: export FBXSDK_PYTHON_PATH="/path/to/fbx/python/site-packages"
+_fbx_paths = os.environ.get("FBXSDK_PYTHON_PATH")
+if _fbx_paths:
+    for _p in _fbx_paths.split(os.pathsep):
+        _p = _p.strip()
+        if _p and _p not in sys.path:
+            sys.path.insert(0, _p)
 
 try:
     import fbx

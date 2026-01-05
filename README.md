@@ -106,7 +106,9 @@ git lfs pull
 pip install -r requirements.txt
 ```
 
-**Note (macOS):** FBX export depends on Autodesk FBX SDK Python bindings (`fbxsdkpy`), which are not available on macOS; on macOS FBX export will be disabled and the app will fall back to non-FBX outputs. `bitsandbytes` is also optional and not available on macOS.
+**Note (macOS):** FBX export depends on Autodesk FBX SDK Python bindings (`fbx` module). The `fbxsdkpy` PyPI package is not available on macOS; on macOS FBX export will be disabled and the app will fall back to non-FBX outputs. `bitsandbytes` is also optional and not available on macOS.
+
+**Optional (macOS FBX export):** If you install Autodesk FBX SDK + Python bindings manually, set `FBXSDK_PYTHON_PATH` to the directory that contains the `fbx` module (so `python -c "import fbx"` works). HY-Motion will auto-enable FBX export when it can import `fbx`.
 
 #### 2. Download Model Weights
 Please follow the instructions in [ckpts/README.md](ckpts/README.md) to download the necessary model weights.
