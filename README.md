@@ -106,6 +106,8 @@ git lfs pull
 pip install -r requirements.txt
 ```
 
+**Note (macOS):** FBX export depends on Autodesk FBX SDK Python bindings (`fbxsdkpy`), which are not available on macOS; on macOS FBX export will be disabled and the app will fall back to non-FBX outputs. `bitsandbytes` is also optional and not available on macOS.
+
 #### 2. Download Model Weights
 Please follow the instructions in [ckpts/README.md](ckpts/README.md) to download the necessary model weights.
 

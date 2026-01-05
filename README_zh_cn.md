@@ -107,6 +107,8 @@ git lfs pull
 pip install -r requirements.txt
 ```
 
+**说明（macOS）：** FBX 导出依赖 Autodesk FBX SDK 的 Python 绑定（`fbxsdkpy`），该包在 macOS 上不可用；因此在 macOS 上会自动禁用 FBX 导出并回退到非 FBX 输出。`bitsandbytes` 也是可选依赖，在 macOS 上不可用。
+
 #### 2. 下载模型权重
 请按照 [ckpts/README.md](ckpts/README.md) 中的说明下载必要的模型权重。
 
